@@ -21,4 +21,8 @@ public class DigitalProduct extends Product {
         return fileSizeMb;
     }
 
+    @Override
+    public String getSummary(){
+        return "Digital: " + getName() + " | Download: " + downloadUrl;
+    }
 }
