@@ -13,10 +13,10 @@ import java.util.Optional;
 @Service
 public class ProductService {
 
-    private List<Product>  products = new ArrayList<>();
+    private List<Product> products = new ArrayList<>();
     private Long nextId = 1L;
 
-    public ProductService(){
+    public ProductService() {
         products.add(new DigitalProduct(nextId++, "Clean Code (E-book)", 29.99,
                 "/downloads/clean-code.pdf", 4.2));
 
@@ -26,12 +26,11 @@ public class ProductService {
     }
 
 
-
     public List<Product> getAllProducts() {
         return products;
     }
 
-    public Product addProduct (Product product){
+    public Product addProduct(Product product) {
         product.setId(nextId++);
         products.add(product);
         return product;
@@ -41,15 +40,24 @@ public class ProductService {
         return products.stream().filter(p -> p.getId().equals(id)).findFirst();
     }
 
-    public void deleteProduct(Long id){
+    public void deleteProduct(Long id) {
         products.removeIf(p -> p.getId().equals(id));
     }
 
-    public List<Product> findByName(String name){
+    public List<Product> findByName(String name) {
         return products.stream().filter(p -> p.getName().contains(name)).toList();
     }
 
-}
+    public List<String> getAllSummaries() {
 
+        List<String> summaries = new ArrayList<>();
+
+        for (Product p : products) {
+            summaries.add(p.getSummary());
+        }
+        return summaries;
+    }
+
+}
 
 
