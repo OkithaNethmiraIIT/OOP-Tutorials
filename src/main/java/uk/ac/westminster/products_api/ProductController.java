@@ -8,12 +8,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/products")
 public class ProductController {
-
-    @GetMapping("/{id}")
-        public Product getById(@PathVariable Long id){
-            return new Product(id, "Laptop", 100.00);
-
-    }
+//
+//    @GetMapping("/{id}")
+//        public Product getById(@PathVariable Long id){
+//            return new Product(id, "Laptop", 100.00);
+//
+//    }
 
     @Autowired
     private ProductService productService;
