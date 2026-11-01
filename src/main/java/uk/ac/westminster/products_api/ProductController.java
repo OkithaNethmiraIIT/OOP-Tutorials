@@ -31,7 +31,7 @@ public class ProductController {
     }
 
     @PostMapping("/products")
-    public Product addProduct(@RequestBody Product product) {
+    public Product addProduct(@RequestBody PhysicalProduct product) {
         return productService.addProduct(product);
     }
 
